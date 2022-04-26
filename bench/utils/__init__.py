@@ -73,6 +73,8 @@ def is_valid_frappe_branch(frappe_path:str, frappe_branch:str):
 		git_api_req = f"https://api.github.com/repos/{owner}/{repo}/branches/{frappe_branch}"
 		res = requests.get(git_api_req)
 
+		print(f"git_api_req: {git_api_req} \n res: {res}")
+
 		if res.status_code == 403:
 			# slower alternative with no rate limit
 			github_req = f'https://github.com/{owner}/{repo}/tree/{frappe_branch}'
